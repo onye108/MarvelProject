@@ -12,10 +12,10 @@
     var hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
 
     // the api deals a lot in ids rather than just the strings you want to use
-    // var characterId = '1010909'; // beast
+    var characterId = '1009175';  // beast
 
 
-    var url = 'https://gateway.marvel.com/v1/public/characters/' ;
+    var url = 'https://gateway.marvel.com/v1/public/characters/' + characterId ;
 
     console.log(url);
     $.getJSON(url, {
@@ -27,7 +27,9 @@
 })
       .done(function(data) {
         // sort of a long dump you will need to sort through
-        console.log(data.data);
+        console.log(data.data.results);
+        $('#chika').find('h2').text('Beast');
+        $('#chika').find('img').attr('src','https://i.annihil.us/u/prod/marvel/i/mg/2/80/511a79a0451a3/portrait_uncanny.jpg');
       })
       .fail(function(err){
         // the error codes are listed on the dev site
