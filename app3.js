@@ -1,9 +1,10 @@
-'use strict';
+// 'use strict'
+
 (function () {
 
   // you will also have to setup the referring domains on your marvel developer portal
-  var PRIV_KEY = '2dee256aac3f0163db8093457368ac4d13f8dc72';
-  var PUBLIC_KEY = 'f9420321c18cd89cc9801877c864b290';
+  var PRIV_KEY = "2dee256aac3f0163db8093457368ac4d13f8dc72";
+  var PUBLIC_KEY = "f9420321c18cd89cc9801877c864b290";
 
   function getMarvelResponse() {
 
@@ -12,32 +13,31 @@
     var hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
 
     // the api deals a lot in ids rather than just the strings you want to use
-    var characterId = '1009175';  // beast
+    var characterId = '1009218'; // wolverine
 
-
-    var url = 'https://gateway.marvel.com/v1/public/characters/' + characterId ;
+    var url = 'https://gateway.marvel.com/v1/public/characters/' + characterId;
 
     console.log(url);
     $.getJSON(url, {
       ts: ts,
       apikey: PUBLIC_KEY,
-      hash: hash,
-      // characters: characterId
-
-})
+      hash: hash
+    })
       .done(function(data) {
         // sort of a long dump you will need to sort through
-        console.log(data.data.results);
-        $('#chika').find('h2').text('Beast');
-        $('#chika').find('img').attr('src','https://i.annihil.us/u/prod/marvel/i/mg/2/80/511a79a0451a3/portrait_uncanny.jpg');
+        console.log(data.data.results[0].name);
+        var charName = data.data.results[0].name;
+        console.log(data.data.results[0].thumbnail.path);
+        var picPath = data.data.results[0].thumbnail.path;
+        var picUrl = picPath + '/portrait_uncanny.jpg';
+        $('#juan').find('h2').text(charName);
+        $('#juan').find('img').attr('src', picUrl);
       })
       .fail(function(err){
         // the error codes are listed on the dev site
         console.log(err);
       });
-  };
+  }
 
   getMarvelResponse();
-
-
 })();
