@@ -35,7 +35,7 @@
         console.log(err);
       });
 
-    var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
+    var img = document.getElementbyId('juan');
     img.attr('src', picUrl);
     img.appendTo(document.body);
   }
