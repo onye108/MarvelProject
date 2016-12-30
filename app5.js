@@ -10,7 +10,7 @@ function getMarvelResponse() {
   var hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
 
   // the api deals a lot in ids rather than just the strings you want to use
-  var characterId = '1009718'; // wolverine
+  var characterId = '1010945'; // wolverine
 
 
   var url = 'https://gateway.marvel.com/v1/public/characters/' + characterId;
