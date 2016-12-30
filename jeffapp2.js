@@ -15,7 +15,7 @@
 
 
     var url = 'https://gateway.marvel.com/v1/public/characters/' + characterId;
-    
+
     console.log(url);
 
     $.getJSON(url, {
@@ -25,6 +25,8 @@
       // characters: characterId
       })
       .done(function(data) {
+        $('#jeff').find('h2').text('The Punisher');
+        $('#jeff').find('img').attr('src', 'http://i.annihil.us/u/prod/marvel/i/mg/0/03/5239b5b358300/portrait_uncanny.jpg');
         // sort of a long dump you will need to sort through
         console.log(data.data.results);
       })
