@@ -26,6 +26,9 @@
 
 })
       .done(function(data) {
+        $('#chika').find('img').attr('src','https://i.annihil.us/u/prod/marvel/i/mg/2/80/511a79a0451a3/portrait_uncanny.jpg');
+        $('#chika').find('h2').text('Beast');
+
         // sort of a long dump you will need to sort through
         console.log(data.data);
       })
@@ -39,9 +42,3 @@
 
 
 })();
-
-(function () {
-
-$('#chika').find('img').attr('src','https://i.annihil.us/u/prod/marvel/i/mg/2/80/511a79a0451a3/portrait_uncanny.jpg');
-})
-();
