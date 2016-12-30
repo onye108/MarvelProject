@@ -1,10 +1,10 @@
 (function () {
   var PRIV_KEY = '2dee256aac3f0163db8093457368ac4d13f8dc72';
   var PUBLIC_KEY = 'f9420321c18cd89cc9801877c864b290';
-  var Marvel = function() {
-    this.characterIDs = [],
-    this.characterNames = []
-  }();
+  var Marvel = {
+    characterIDs: [],
+    characterNames: []
+  };
 
 
   console.log('hey');
@@ -35,7 +35,7 @@
 
       .done(function(data) {
         // sort of a long dump you will need to sort through
-        console.log(data);
+        // console.log(data);
         // console.log(data.data.results.name);
         for(var j = 0; j < 100; j++){
           if(data.data.results[j].id){
@@ -43,7 +43,7 @@
             Marvel.characterNames.push(data.data.results[j].name);
           }
         }
-        console.log(Marvel.characterIDs);
+        console.log(Marvel);
       })
       .fail(function(err){
         // the error codes are listed on the dev site

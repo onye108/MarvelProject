@@ -1,0 +1,18 @@
+main {
+  margin-top: 12%;
+}
+
+.xmenRow h2 {
+  text-align: center;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imageContainer div {
+  margin: 0 auto;
+  margin-top: 15px;
+}
