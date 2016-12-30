@@ -26,11 +26,10 @@
 
 })
       .done(function(data) {
-        $('#chika').find('img').attr('src','https://i.annihil.us/u/prod/marvel/i/mg/2/80/511a79a0451a3/portrait_uncanny.jpg');
-        $('#chika').find('h2').text('Beast');
-
         // sort of a long dump you will need to sort through
-        console.log(data.data);
+        console.log(data.data.results);
+        $('#chika').find('h2').text('Beast');
+        $('#chika').find('img').attr('src','https://i.annihil.us/u/prod/marvel/i/mg/2/80/511a79a0451a3/portrait_uncanny.jpg');
       })
       .fail(function(err){
         // the error codes are listed on the dev site
@@ -39,6 +38,6 @@
   };
 
   getMarvelResponse();
-
+  done();
 
 })();
