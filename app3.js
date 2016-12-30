@@ -1,3 +1,5 @@
+// 'use strict'
+
 (function () {
 
   // you will also have to setup the referring domains on your marvel developer portal
@@ -12,7 +14,8 @@
 
     // the api deals a lot in ids rather than just the strings you want to use
     var characterId = '1009718'; // wolverine
-
+    var picPath;
+    var picUrl = picPath + '/portrait_xlarge.jpg';
 
     var url = 'https://gateway.marvel.com/v1/public/characters/' + characterId;
 
@@ -24,15 +27,18 @@
     })
       .done(function(data) {
         // sort of a long dump you will need to sort through
-        console.log(data.data);
+        console.log(data.data.results[0].thumbnail.path);
+        picPath = data.data.results[0].thumbnail.path;
       })
       .fail(function(err){
         // the error codes are listed on the dev site
         console.log(err);
       });
+
+    var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
+    img.attr('src', picUrl);
+    img.appendTo(document.body);
   }
 
   getMarvelResponse();
-
-
 })();
