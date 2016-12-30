@@ -1,6 +1,4 @@
-
-
-  // you will also have to setup the referring domains on your marvel developer portal
+(function () {
   var PRIV_KEY = "2dee256aac3f0163db8093457368ac4d13f8dc72";
   var PUBLIC_KEY = "f9420321c18cd89cc9801877c864b290";
   var characterNames = [];
@@ -53,4 +51,5 @@
     }
   };
 
-  getMarvelResponse();
+
+});
