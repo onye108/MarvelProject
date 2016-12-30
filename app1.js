@@ -39,3 +39,8 @@
 
 
 })();
+
+(function () {
+var imgaeOfBeast = 'https://i.annihil.us/u/prod/marvel/i/mg/2/80/511a79a0451a3';
+$()
+})();
