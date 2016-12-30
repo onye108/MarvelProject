@@ -2,6 +2,10 @@ main {
   margin-top: 12%;
 }
 
+.xmenRow {
+  margin-top: 50px;
+}
+
 .xmenRow h2 {
   text-align: center;
 }
