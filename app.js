@@ -14,20 +14,18 @@
     var characterId = '1009718'; // wolverine
 
 
-    var url = 'https://gateway.marvel.com/v1/public/comics';
+    var url = 'https://gateway.marvel.com/v1/public/characters/' + characterId;
 
-    console.log(url);
     $.getJSON(url, {
       ts: ts,
       apikey: PUBLIC_KEY,
-      hash: hash,
-      characters: characterId
+      hash: hash
       })
       .done(function(data) {
         // sort of a long dump you will need to sort through
-        console.log(data);
+        console.log(data.data);
       })
-      .fail(function(err){
+      .fail(function(err) {
         // the error codes are listed on the dev site
         console.log(err);
       });
