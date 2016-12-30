@@ -13,9 +13,7 @@
     var hash = CryptoJS.MD5(ts + PRIV_KEY + PUBLIC_KEY).toString();
 
     // the api deals a lot in ids rather than just the strings you want to use
-    var characterId = '1009718'; // wolverine
-    var picPath;
-    var picUrl = picPath + '/portrait_xlarge.jpg';
+    var characterId = '1009218'; // wolverine
 
     var url = 'https://gateway.marvel.com/v1/public/characters/' + characterId;
 
@@ -27,17 +25,18 @@
     })
       .done(function(data) {
         // sort of a long dump you will need to sort through
+        console.log(data.data.results[0].name);
+        var charName = data.data.results[0].name;
         console.log(data.data.results[0].thumbnail.path);
-        picPath = data.data.results[0].thumbnail.path;
+        var picPath = data.data.results[0].thumbnail.path;
+        var picUrl = picPath + '/portrait_uncanny.jpg';
+        $('#juan').find('h2').text(charName);
+        $('#juan').find('img').attr('src', picUrl);
       })
       .fail(function(err){
         // the error codes are listed on the dev site
         console.log(err);
       });
-
-    var img = document.getElementbyId('juan');
-    img.attr('src', picUrl);
-    img.appendTo(document.body);
   }
 
   getMarvelResponse();
