@@ -25,8 +25,12 @@
       // characters: characterId
       })
       .done(function(data) {
-        $('#jeff').find('h2').text('The Punisher');
-        $('#jeff').find('img').attr('src', 'http://i.annihil.us/u/prod/marvel/i/mg/0/03/5239b5b358300/portrait_uncanny.jpg');
+        var character = data.data.results[0].name;
+        var picture = data.data.results[0].thumbnail.path;
+        console.log(data.data.results[0].thumbnail.path);
+        var picUrl = picture + '/portrait_uncanny.jpg'
+        $('#jeff').find('h2').text(character);
+        $('#jeff').find('img').attr('src', picUrl);
         // sort of a long dump you will need to sort through
         console.log(data.data.results);
       })
