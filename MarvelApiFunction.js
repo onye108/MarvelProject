@@ -10,12 +10,9 @@ function getMarvelResponse(ApiSingleton) {
 
     })
     .done(function(data) {
-      // sort of a long dump you will need to sort through
-      console.log(data.data);
-        
+
     })
     .fail(function(err) {
-      // the error codes are listed on the dev site
-      console.log(err);
+    
     });
 }
